@@ -1,0 +1,13 @@
+<launch>
+
+  <!-- DepthImage To LaserScan openner -->
+  <node pkg="depthimage_to_laserscan" type="depthimage_to_laserscan" name="depthimage_to_laserscan" args="load depthimage_to_laserscan/DepthImageToLaserScanNodelet">
+    <remap from="camera_info" to="/kinect/depth/camera_info" />
+    <remap from="image" to="/kinect/depth/image_raw" />
+    <remap from="scan" to="/depth_scan" />
+    <param name="scan_height" value="10" />
+    <param name="range_max" value="3" />
+    <param name="output_frame_id" value="camera_depth_frame" />
+  </node>
+
+</launch>
